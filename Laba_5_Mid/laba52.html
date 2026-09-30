@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лабораторная работа №5</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<script src="theme.js"></script>
+</head>
+<body>
+
+ <header class="site-header">
+    <div class="container header-row">
+      <div>
+        <h1>Лабораторная работа №5</h1>
+        <p class="subtitle">Дисциплина: Языки программирования &nbsp;|&nbsp; Группа: ИС 26-21 ТИПО &nbsp;|&nbsp; Студент: Решетников Константин</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="work-area">
+
+      <h2>Форма регистрации</h2>
+
+      <form id="registration-form">
+
+        <div class="form-group">
+          <label for="login">Логин <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="login" name="login" placeholder="От 3 символов, буквы/цифры/_">
+            <span class="status-icon" id="login-icon"></span>
+          </div>
+          <span class="error-message" id="login-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="password" id="password" name="password" placeholder="Введите пароль">
+            <span class="status-icon" id="password-icon"></span>
+          </div>
+
+          <ul class="password-requirements" id="password-requirements">
+            <li id="req-length" data-icon="•"></span>Минимум 6 символов</li>
+            <li id="req-digit" data-icon="•"></span>Содержит хотя бы одну цифру</li>
+          </ul>
+
+          <span class="error-message" id="password-error"></span>
+        </div>
+
+        <button type="submit" class="btn-submit">Зарегистрироваться</button>
+
+        <p class="form-success" id="form-success">Регистрация успешно завершена!</p>
+
+      </form>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026. Лабораторная работа выполнена в учебных целях.</p>
+    </div>
+  </footer>
+
+<script>
+
+</script>
+</body>
+</html>
