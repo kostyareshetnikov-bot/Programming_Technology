@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторная работа №6 — Таблица оценок</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>Лабораторная работа №6</h1>
+      <p class="subtitle">Дисциплина: Языки программирования &nbsp;|&nbsp; Группа: ИС 26-21 ТИПО &nbsp;|&nbsp; Студент: Решетников Константин</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="work-area work-area--wide">
+
+      <h2>Таблица оценок</h2>
+      <p class="work-area__hint">Кликните по ячейке с оценкой, чтобы отредактировать её. Средний балл пересчитывается автоматически.</p>
+
+      <div class="table-wrapper">
+        <table class="grades-table" id="gradesTable">
+          <thead>
+            <tr>
+              <th>Студент</th>
+              <th>Математика</th>
+              <th>Физика</th>
+              <th>Информатика</th>
+              <th>Средний балл</th>
+            </tr>
+          </thead>
+          <tbody id="gradesBody">
+            <tr>
+              <td>Иванов И.И.</td>
+              <td class="grade-cell" data-value="85">85</td>
+              <td class="grade-cell" data-value="90">90</td>
+              <td class="grade-cell" data-value="78">78</td>
+              <td class="avg-cell">—</td>
+            </tr>
+            <tr>
+              <td>Петрова А.С.</td>
+              <td class="grade-cell" data-value="92">92</td>
+              <td class="grade-cell" data-value="88">88</td>
+              <td class="grade-cell" data-value="95">95</td>
+              <td class="avg-cell">—</td>
+            </tr>
+            <tr>
+              <td>Сидоров К.В.</td>
+              <td class="grade-cell" data-value="60">60</td>
+              <td class="grade-cell" data-value="72">72</td>
+              <td class="grade-cell" data-value="68">68</td>
+              <td class="avg-cell">—</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Средний балл по группе</td>
+              <td id="classAvg" class="avg-cell avg-cell--total">—</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <p id="tableError" class="error-message" hidden>Оценка должна быть числом от 0 до 100.</p>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026. Лабораторная работа выполнена в учебных целях.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
