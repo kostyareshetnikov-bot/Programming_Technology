@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторная работа №7 — Визитка студента</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>Лабораторная работа №7</h1>
+      <p class="subtitle">Дисциплина: Языки программирования &nbsp;|&nbsp; Группа: ИС 26-21 ТИПО &nbsp;|&nbsp; Студент: Решетников Константин</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="work-area work-area--wide">
+
+      <div class="profile">
+        <div class="profile__avatar" id="profileAvatar" aria-hidden="true"></div>
+        <div>
+          <h2 class="profile__name" id="profileName"></h2>
+          <p class="profile__meta" id="profileMeta"></p>
+        </div>
+      </div>
+
+      <div class="tabs" id="tabs" role="tablist" aria-label="Разделы визитки"></div>
+
+      <div class="tab-panel" id="tabPanel" role="tabpanel" tabindex="0"></div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026. Лабораторная работа выполнена в учебных целях.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

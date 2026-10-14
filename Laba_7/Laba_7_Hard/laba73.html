@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторная работа №7 — Панель заказов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>Лабораторная работа №7</h1>
+      <p class="subtitle">Дисциплина: Языки программирования &nbsp;|&nbsp; Группа: ИС 26-21 ТИПО &nbsp;|&nbsp; Студент: Решетников Константин</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="work-area work-area--wide">
+
+      <h2>Панель заказов</h2>
+      <p class="work-area__hint">Переводите заказы между статусами — счётчики на вкладках обновляются сразу.</p>
+
+      <div class="tabs" id="tabs" role="tablist" aria-label="Статусы заказов">
+        <button type="button" class="tab tab--active" role="tab" id="tab-new" data-status="new" aria-selected="true">
+          Новые <span class="tab__count" id="count-new">0</span>
+        </button>
+        <button type="button" class="tab" role="tab" id="tab-progress" data-status="progress" aria-selected="false" tabindex="-1">
+          В работе <span class="tab__count" id="count-progress">0</span>
+        </button>
+        <button type="button" class="tab" role="tab" id="tab-ready" data-status="ready" aria-selected="false" tabindex="-1">
+          Готовые <span class="tab__count" id="count-ready">0</span>
+        </button>
+      </div>
+
+      <ul id="orderList" class="orders" role="tabpanel"></ul>
+      <p id="emptyMsg" class="empty" hidden></p>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026. Лабораторная работа выполнена в учебных целях.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

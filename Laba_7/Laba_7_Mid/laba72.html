@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторная работа №7 — Список задач</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>Лабораторная работа №7</h1>
+      <p class="subtitle">Дисциплина: Языки программирования &nbsp;|&nbsp; Группа: ИС 26-21 ТИПО &nbsp;|&nbsp; Студент: Решетников Константин</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="work-area work-area--wide">
+
+      <h2>Список задач</h2>
+
+      <form id="taskForm" class="task-form" novalidate>
+        <label for="taskInput" class="visually-hidden">Новая задача</label>
+        <input type="text" id="taskInput" placeholder="Что нужно сделать?" autocomplete="off">
+        <button type="submit" class="btn-submit btn-submit--inline">Добавить</button>
+      </form>
+      <p id="taskError" class="error-message error-message--block" role="alert" hidden>Введите текст задачи.</p>
+
+      <div class="tabs" id="tabs" role="tablist" aria-label="Фильтр задач">
+        <button type="button" class="tab tab--active" role="tab" id="tab-all" data-filter="all" aria-selected="true">
+          Все <span class="tab__count" id="count-all">0</span>
+        </button>
+        <button type="button" class="tab" role="tab" id="tab-active" data-filter="active" aria-selected="false" tabindex="-1">
+          Активные <span class="tab__count" id="count-active">0</span>
+        </button>
+        <button type="button" class="tab" role="tab" id="tab-done" data-filter="done" aria-selected="false" tabindex="-1">
+          Выполненные <span class="tab__count" id="count-done">0</span>
+        </button>
+      </div>
+
+      <ul id="taskList" class="tasks" role="tabpanel"></ul>
+      <p id="emptyMsg" class="empty" hidden></p>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026. Лабораторная работа выполнена в учебных целях.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
