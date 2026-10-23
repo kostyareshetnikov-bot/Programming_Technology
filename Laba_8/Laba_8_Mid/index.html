@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лаб. 8 — Вариант 8: To-Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Список задач</h1>
+
+    <div class="add">
+      <input id="task" placeholder="Новая задача" maxlength="120" autocomplete="off">
+      <button id="add" type="button">Добавить</button>
+    </div>
+    <p id="error" class="error" role="alert"></p>
+
+    <div class="filters" role="group" aria-label="Фильтр задач">
+      <button type="button" data-filter="all" class="active">Все</button>
+      <button type="button" data-filter="active">Активные</button>
+      <button type="button" data-filter="done">Выполненные</button>
+    </div>
+
+    <ul id="list"></ul>
+    <p id="empty" class="empty">Задач пока нет. Добавьте первую.</p>
+    <p id="counter" class="counter"></p>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>

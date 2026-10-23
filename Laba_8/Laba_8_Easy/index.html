@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лаб. 8 — Вариант 3: Настройки темы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="panel">
+    <h1>Настройки внешнего вида</h1>
+
+    <label for="theme">Тема</label>
+    <select id="theme">
+      <option value="light">Светлая</option>
+      <option value="dark">Тёмная</option>
+    </select>
+
+    <label for="size">Размер текста: <output id="sizeValue">18</output> px</label>
+    <input id="size" type="range" min="12" max="32" step="1" value="18">
+
+    <p class="sample">Пример текста. Измените настройки, обновите страницу — выбор сохранится.</p>
+
+    <button id="reset" type="button">Сбросить настройки</button>
+
+    <h2>Что лежит в localStorage</h2>
+    <pre id="json">—</pre>
+    <p id="message" role="status"></p>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>

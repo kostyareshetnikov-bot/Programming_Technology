@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лаб. 8 — Вариант 16: Канбан-доска</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Канбан-доска</h1>
+    <div class="add">
+      <input id="text" placeholder="Новая карточка" maxlength="100" autocomplete="off">
+      <button id="add" type="button">Добавить в «План»</button>
+      <button id="clear" type="button" class="ghost">Очистить доску</button>
+    </div>
+    <p id="error" class="error" role="alert"></p>
+  </header>
+
+  <main id="board" class="board"></main>
+  <script src="script.js" defer></script>
+</body>
+</html>
