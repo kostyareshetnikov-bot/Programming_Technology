@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вариант 12: пагинация публикаций</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <h1>Публикации</h1>
+      <div class="size-picker">
+        <label for="page-size">На странице</label>
+        <select id="page-size">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="status-row">
+      <p id="status" role="status"></p>
+      <button id="retry" class="outline" type="button" hidden>Повторить</button>
+    </div>
+
+    <ul id="results"></ul>
+
+    <nav class="pager">
+      <button id="prev" type="button">← Назад</button>
+      <span id="page-info"></span>
+      <button id="next" type="button">Вперёд →</button>
+    </nav>
+  </main>
+</body>
+</html>

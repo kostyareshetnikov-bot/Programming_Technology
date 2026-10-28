@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вариант 19: поиск с debounce и AbortController</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <h1>Поиск публикаций</h1>
+      <p class="subtitle">Debounce 400 мс · отмена устаревших запросов через AbortController</p>
+    </header>
+
+    <div class="search-box">
+      <input id="search" type="search" placeholder="Введите слово, например: qui" autocomplete="off">
+    </div>
+
+    <div class="info-row">
+      <p id="status" role="status"></p>
+      <button id="retry" type="button" hidden>Повторить</button>
+    </div>
+    <p class="meta" id="counters"></p>
+
+    <ul id="results"></ul>
+  </main>
+</body>
+</html>
