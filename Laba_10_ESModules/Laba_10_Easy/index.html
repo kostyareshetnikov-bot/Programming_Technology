@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор геометрии</title>
+<link rel="stylesheet" href="./styles/style.css"></head>
+<body>
+<h1>Калькулятор геометрии</h1>
+<fieldset><legend>Прямоугольник</legend>
+  <label>Ширина <input id="w" inputmode="decimal"></label>
+  <label>Высота <input id="h" inputmode="decimal"></label>
+  <button id="calc-rect">Рассчитать</button>
+  <p id="rect-result" aria-live="polite"></p>
+</fieldset>
+<fieldset><legend>Круг</legend>
+  <label>Радиус <input id="r" inputmode="decimal"></label>
+  <button id="calc-circle">Рассчитать</button>
+  <p id="circle-result" aria-live="polite"></p>
+</fieldset>
+<button id="reset">Очистить всё</button>
+<script type="module" src="./src/main.js"></script>
+</body></html>
