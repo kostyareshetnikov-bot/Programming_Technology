@@ -1,0 +1,203 @@
+/* ===== Вариант 15 — Мини-викторина ===== */
+.quiz {
+  max-width: 680px;
+}
+
+/* Прогресс */
+.progress {
+  height: 6px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  transition: width 0.3s;
+}
+
+/* Вопрос */
+.question-text {
+  margin: 8px 0 20px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.option:not(:disabled):hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.option-letter {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--surface-hover);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.option-correct {
+  border-color: var(--green);
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.option-correct .option-letter {
+  background: var(--green);
+  color: var(--bg);
+}
+
+.option-wrong {
+  border-color: var(--red);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.option-wrong .option-letter {
+  background: var(--red);
+  color: var(--bg);
+}
+
+.option-faded {
+  opacity: 0.45;
+}
+
+.feedback {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.feedback-ok {
+  color: var(--green);
+}
+
+.feedback-bad {
+  color: var(--red);
+}
+
+/* Низ викторины */
+.quiz-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quiz-score {
+  color: var(--muted);
+}
+
+.quiz-score b {
+  color: var(--text);
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Результат */
+.result {
+  text-align: center;
+}
+
+.result-circle {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  margin: 16px auto 18px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) calc(var(--percent) * 1%), var(--border) 0);
+}
+
+.result-circle-inner {
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.result-score {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.result-message {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 24px 0;
+  list-style: none;
+  text-align: left;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 14px;
+}
+
+.result-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--bg);
+}
+
+.result-item.ok .result-icon {
+  background: var(--green);
+}
+
+.result-item.bad .result-icon {
+  background: var(--red);
+}

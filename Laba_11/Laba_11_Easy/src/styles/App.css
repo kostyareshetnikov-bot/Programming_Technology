@@ -1,0 +1,73 @@
+/* ===== Вариант 5 — Оценка занятия ===== */
+.ratings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.rating-lesson {
+  margin-top: -8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.star {
+  padding: 0 2px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--border);
+  cursor: pointer;
+  transition: transform 0.12s, color 0.12s;
+}
+
+.star:hover {
+  transform: scale(1.18);
+}
+
+/* Если звёзд много (например, 10) — делаем их меньше */
+.stars-small .star {
+  padding: 0 1px;
+  font-size: 21px;
+}
+
+.star-active {
+  color: var(--yellow);
+  text-shadow: 0 0 16px rgba(251, 191, 36, 0.45);
+}
+
+.rating-result {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rating-score {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.rating-max {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.rating-message {
+  min-height: 1.5em;
+  color: var(--muted);
+}
