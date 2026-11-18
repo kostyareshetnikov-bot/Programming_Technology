@@ -1,0 +1,95 @@
+/* ===== Стили варианта 3: заметки ===== */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* без min-width: 0 широкая таблица растягивает колонку на телефоне */
+.layout > * {
+  min-width: 0;
+}
+
+.note-form {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.note-form-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.note-form-bottom .btn {
+  margin-left: auto;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 140px;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color 0.15s;
+}
+
+.note:hover {
+  border-color: var(--border-strong);
+}
+
+.note-text {
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--faint);
+  font-size: 12.5px;
+}
+
+.note-id {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+.check-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.check-result {
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.check-result .tag {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

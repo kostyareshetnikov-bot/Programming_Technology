@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЛР №12 · JWT-сессии</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- ===== Экран входа ===== -->
+    <main class="auth" id="authView" hidden>
+      <section class="card auth-card">
+        <span class="badge">ЛР №12 · Вариант 17 · Повышенный</span>
+        <div class="auth-logo" data-icon="lock"></div>
+        <h1 class="auth-title">JWT-сессии</h1>
+        <p class="auth-subtitle">Короткий access token живёт в памяти вкладки, refresh token — в cookie HttpOnly и меняется при каждом обновлении.</p>
+
+        <form class="form" id="loginForm" novalidate>
+          <label class="field">
+            <span class="field-label">Логин</span>
+            <input class="input" name="login" autocomplete="username" placeholder="например, aliya" />
+            <span class="field-error" data-error-for="login"></span>
+          </label>
+          <label class="field">
+            <span class="field-label">Пароль</span>
+            <input class="input" name="password" type="password" autocomplete="current-password" placeholder="••••••••" />
+            <span class="field-error" data-error-for="password"></span>
+          </label>
+          <div class="alert alert-error" id="loginError" hidden></div>
+          <button class="btn btn-primary btn-block" type="submit">Войти</button>
+        </form>
+
+        <div class="test-users">
+          Тестовые логины:
+          <button class="chip" type="button" data-login="aliya">aliya</button>
+          <button class="chip" type="button" data-login="daniyar">daniyar</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Панель после входа ===== -->
+    <div id="appView" hidden>
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" data-icon="lock"></span>
+          JWT-сессии <small>· ЛР №12</small>
+        </div>
+        <div class="topbar-right">
+          <div class="user-pill">
+            <span class="avatar" id="userAvatar"></span>
+            <span><b id="userName"></b><small id="userLogin"></small></span>
+          </div>
+          <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button">Выйти</button>
+        </div>
+      </header>
+
+      <main class="page">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title" id="greeting"></h1>
+            <p class="page-subtitle">Access token обновляется автоматически, когда сервер отвечает <code>401 token_expired</code></p>
+          </div>
+          <button class="btn btn-danger btn-sm" id="logoutAllBtn" type="button">Выйти на всех устройствах</button>
+        </div>
+
+        <div class="dashboard">
+          <div class="column">
+            <!-- Access token -->
+            <section class="card">
+              <div class="row-between">
+                <h2 class="card-title">Access token</h2>
+                <span class="tag" id="tokenStatus"></span>
+              </div>
+              <div class="countdown">
+                <span class="countdown-value mono" id="tokenTimer">00:00</span>
+                <span class="countdown-label" id="tokenHint"></span>
+              </div>
+              <div class="progress"><div class="progress-bar" id="tokenProgress"></div></div>
+              <div class="actions">
+                <button class="btn btn-primary btn-sm" id="callMeBtn" type="button">Запросить GET /api/me</button>
+                <button class="btn btn-ghost btn-sm" id="refreshBtn" type="button">Обновить токен сейчас</button>
+              </div>
+
+              <div class="jwt-raw mono" id="jwtRaw"></div>
+              <div class="jwt-grid">
+                <div>
+                  <h3 class="mini-title"><span class="dot dot-h"></span>Header</h3>
+                  <pre class="code" id="jwtHeader"></pre>
+                </div>
+                <div>
+                  <h3 class="mini-title"><span class="dot dot-p"></span>Payload (claims)</h3>
+                  <dl class="claims" id="jwtClaims"></dl>
+                </div>
+              </div>
+              <p class="note">Payload не зашифрован — его видно выше. Поэтому в токене нет паролей и секретов, а подлинность проверяет сервер по подписи.</p>
+            </section>
+
+            <!-- Сессии -->
+            <section class="card">
+              <div class="row-between">
+                <h2 class="card-title">Активные сессии</h2>
+                <button class="btn btn-ghost btn-sm" id="reloadSessionsBtn" type="button">Обновить</button>
+              </div>
+              <p class="card-hint">Каждый вход — отдельная сессия со своей цепочкой refresh token.</p>
+              <div class="sessions" id="sessionsList"></div>
+            </section>
+          </div>
+
+          <aside class="column">
+            <section class="card">
+              <div class="row-between">
+                <h2 class="card-title">Журнал запросов</h2>
+                <button class="btn btn-ghost btn-sm" id="clearLogBtn" type="button">Очистить</button>
+              </div>
+              <p class="card-hint">Видно, как клиент получает 401 и сам обновляет токен.</p>
+              <ol class="log" id="requestLog"></ol>
+            </section>
+
+            <section class="card">
+              <h2 class="card-title">Проверка доступа</h2>
+              <p class="card-hint">Вставьте ID сессии. Чужую сервер не покажет: <code>403</code>. ID другого пользователя можно взять, войдя под ним в режиме инкогнито.</p>
+              <form class="check-form" id="checkForm">
+                <input class="input mono" name="id" placeholder="ID сессии" />
+                <button class="btn btn-ghost" type="submit">Открыть</button>
+              </form>
+              <div id="checkResult"></div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===== Подтверждение ===== -->
+    <dialog class="dialog" id="confirmDialog">
+      <form method="dialog">
+        <h2 class="dialog-title"></h2>
+        <p class="dialog-text"></p>
+        <div class="dialog-actions">
+          <button class="btn btn-ghost" value="cancel">Отмена</button>
+          <button class="btn btn-danger" value="ok">Да</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

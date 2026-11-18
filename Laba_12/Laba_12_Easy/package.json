@@ -1,0 +1,19 @@
+{
+  "name": "laba-12-easy",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ЛР №12, вариант 3: авторизация в системе заметок (серверная сессия, cookie HttpOnly)",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:short": "node server/index.js --ttl=30",
+    "hash": "node scripts/hash-password.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0"
+  }
+}

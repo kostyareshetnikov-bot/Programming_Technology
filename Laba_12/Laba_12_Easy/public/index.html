@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЛР №12 · Мои заметки</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- ===== Экран входа ===== -->
+    <main class="auth" id="authView" hidden>
+      <section class="card auth-card">
+        <span class="badge">ЛР №12 · Вариант 3 · Базовый</span>
+        <div class="auth-logo" data-icon="lock"></div>
+        <h1 class="auth-title">Мои заметки</h1>
+        <p class="auth-subtitle">Заметки приватные: сервер отдаёт их только после входа и только владельцу.</p>
+
+        <form class="form" id="loginForm" novalidate>
+          <label class="field">
+            <span class="field-label">Логин</span>
+            <input class="input" name="login" autocomplete="username" placeholder="например, aliya" />
+            <span class="field-error" data-error-for="login"></span>
+          </label>
+          <label class="field">
+            <span class="field-label">Пароль</span>
+            <input class="input" name="password" type="password" autocomplete="current-password" placeholder="••••••••" />
+            <span class="field-error" data-error-for="password"></span>
+          </label>
+          <div class="alert alert-error" id="loginError" hidden></div>
+          <button class="btn btn-primary btn-block" type="submit">Войти</button>
+        </form>
+
+        <div class="test-users">
+          Тестовые логины:
+          <button class="chip" type="button" data-login="aliya">aliya</button>
+          <button class="chip" type="button" data-login="daniyar">daniyar</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Приватная страница ===== -->
+    <div id="appView" hidden>
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" data-icon="lock"></span>
+          Мои заметки <small>· ЛР №12</small>
+        </div>
+        <div class="topbar-right">
+          <div class="user-pill">
+            <span class="avatar" id="userAvatar"></span>
+            <span><b id="userName"></b><small id="userLogin"></small></span>
+          </div>
+          <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button">Выйти</button>
+        </div>
+      </header>
+
+      <main class="page">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Приватные заметки</h1>
+            <p class="page-subtitle" id="notesCount"></p>
+          </div>
+          <span class="tag tag-ok" id="sessionInfo"></span>
+        </div>
+
+        <div class="layout">
+          <section>
+            <form class="card note-form" id="noteForm" novalidate>
+              <textarea class="input" name="text" maxlength="300" placeholder="Новая заметка…"></textarea>
+              <div class="note-form-bottom">
+                <span class="field-error" id="noteError"></span>
+                <button class="btn btn-primary" type="submit">Добавить</button>
+              </div>
+            </form>
+            <div class="notes" id="notesList"></div>
+          </section>
+
+          <aside class="card">
+            <h2 class="card-title">Проверка доступа</h2>
+            <p class="card-hint">Откройте заметку по номеру. Сервер сам проверит, чья она: чужая вернёт <code>403</code>.</p>
+            <form class="check-form" id="checkForm">
+              <input class="input" name="id" type="number" min="1" placeholder="Например, 4" />
+              <button class="btn btn-ghost" type="submit">Открыть</button>
+            </form>
+            <div id="checkResult"></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===== Подтверждение выхода ===== -->
+    <dialog class="dialog" id="confirmDialog">
+      <form method="dialog">
+        <h2 class="dialog-title"></h2>
+        <p class="dialog-text"></p>
+        <div class="dialog-actions">
+          <button class="btn btn-ghost" value="cancel">Отмена</button>
+          <button class="btn btn-danger" value="ok">Да</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
